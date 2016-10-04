@@ -5,12 +5,14 @@ class Program
 {
     private Process process;
 
-    public Program(string exec_path, string args="", bool hidden=false) {
+    public Program(string exec_path, string args="", bool admin=false, bool hidden=false) {
         this.process = new Process();
         this.process.StartInfo.UseShellExecute = true;
         this.process.StartInfo.FileName = exec_path;
-        this.process.StartInfo.Verb = "runas";
         this.process.StartInfo.Arguments = args;
+
+        if (admin)
+            this.process.StartInfo.Verb = "runas";
 
         if (hidden)
             this.process.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
