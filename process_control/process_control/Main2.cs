@@ -8,10 +8,11 @@ class Main2
 {
     static void Main(string[] args)
     {
-        Program prog = new Program("c:\\Python27\\python.exe", "E:\\testando.py");
+        Program program = new Program("C:\\Windows\\System32\\notepad.exe");
 
-        prog.Start();
+        program.Start();
         System.Threading.Thread.Sleep(5000);
-        prog.Terminate();
+        program.Terminate();
+        System.Threading.Thread.Sleep(5000);
     }
 }
